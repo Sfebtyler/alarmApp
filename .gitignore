@@ -1,5 +1,5 @@
 # My Added Stuff
-/node_modules
+node_modules/
 
 # Swap Space
 *.swp
