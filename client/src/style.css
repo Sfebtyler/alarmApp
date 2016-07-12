@@ -111,3 +111,11 @@ button{
 button:hover{
 	background:lightgreen;
 }
+@media screen and (max-width:1284px){
+#notCheck {
+	width:calc(85%);
+}
+#check{
+	width:calc(10%);
+}
+}	
