@@ -39,6 +39,7 @@
     "skipper": "^0.6.1",
     "toaster": "^0.1.2",
     "toastr": "^2.1.2",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "^1.1.0",
+    "react-bootstrap-datetimepicker": "^0.0.22"
   }
 }
