@@ -10,7 +10,7 @@
     "type": "git",
     "url": "tgfbikes"
   },
-  "author": "Stephen King",
+  "author": "Eric Belliston",
   "license": "ISC",
   "dependencies": {
     "babelify": "^7.3.0",
@@ -42,10 +42,3 @@
     "vinyl-source-stream": "^1.1.0"
   }
 }
-
-
-
-
-
-
-
