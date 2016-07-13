@@ -63,13 +63,17 @@ h3{
 
 .overflow{
 	overflow:auto;	
-	background-color:#afb;
+	/*background-color:#afb;*/
+	background-color:#eee;
 	border-radius:0px 0px 4px 4px;
 	font-size:20px;
 	height: 600px;
 	margin-bottom: 20px;
 }
 
+#today{
+	height:572.5px;
+}
 #today-date{
 	font-family: "Arial", Gadget, sans-serif;
 	text-align:center;	
@@ -106,6 +110,7 @@ button{
 	font-weight:900;
 	text-decoration: none;
 	outline:none;
+	margin:5px;
 }
 
 button:hover{
@@ -117,5 +122,8 @@ button:hover{
 }
 #check{
 	width:calc(10%);
+}
+#addButton{
+	margin:0px auto;
 }
 }	
