@@ -32,7 +32,7 @@ nav.navbar.navbar-default{
 	min-height:20px;
 	outline: 40px black;
 }
-nav li{
+nav navbar-nav li{
 	width:calc(100%/3);
 	float:left;
 	text-align: center;
