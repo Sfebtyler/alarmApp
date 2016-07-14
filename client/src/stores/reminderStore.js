@@ -27,7 +27,7 @@ var ReminderStore = Object.assign({}, EventEmitter.prototype, {
 		return _reminders;
 	},
 
-	getReminderById: function (todoId) {
+	getReminderById: function (ReminderId) {
 		return _.find(_reminders, {_id: remindersId});
 
 	}

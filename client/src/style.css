@@ -118,6 +118,9 @@ button{
 button:hover{
 	background:lightgreen;
 }
+ul.list-unstyled{
+	padding-left: 300;
+}
 @media screen and (max-width:1284px){
 #notCheck {
 	width:calc(85%);
