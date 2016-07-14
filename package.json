@@ -33,13 +33,15 @@
     "passport-http": "^0.3.0",
     "passport-local": "^1.0.0",
     "react": "^15.1.0",
+    "react-bootstrap": "^0.29.5",
+    "react-bootstrap-datetimepicker": "^0.0.22",
+    "react-date-picker": "^5.3.23",
     "react-dom": "^15.1.0",
     "react-router": "^2.4.1",
     "reactify": "^1.1.1",
     "skipper": "^0.6.1",
     "toaster": "^0.1.2",
     "toastr": "^2.1.2",
-    "vinyl-source-stream": "^1.1.0",
-    "react-bootstrap-datetimepicker": "^0.0.22"
+    "vinyl-source-stream": "^1.1.0"
   }
 }
