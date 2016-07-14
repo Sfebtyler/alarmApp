@@ -46,4 +46,17 @@ var addZero = function(i) {
 
 startClock();
 
-module.exports = startClock;
+var clockMount = React.createClass({
+	render: function () {
+		console.log(this.props.errors);
+		return (
+			<div>
+				{displayedTime}
+			</div>
+
+		);
+	}
+
+});
+
+module.exports = clockMount;
