@@ -2,7 +2,7 @@
 
 module.exports = {
 	INITIALIZE: 'initialize',
-	CREATE_TODO: 'create todo',
-	UPDATE_TODO: 'update todo',
-	DELETE_TODO: 'delete todo',
+	CREATE_REMINDER: 'create reminder',
+	UPDATE_REMINDER: 'update reminder',
+	DELETE_REMINDER: 'delete reminder',
 };

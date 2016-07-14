@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var TodoSchema = new mongoose.Schema({
+var ReminderSchema = new mongoose.Schema({
 	title: { type: String, required: true, unique: true, dropDups: true },
 	description: { type: String, required: true },
 	completed: { type: Boolean, default: false },
@@ -8,13 +8,13 @@ var TodoSchema = new mongoose.Schema({
 	updatedAt: Date
 })
 
-TodoSchema.pre('save', function(done)
+ReminderSchema.pre('save', function(done)
 {
 	this.updatedAt = new Date();
 	done();
 })
 
-module.exports = mongoose.model('Todo', TodoSchema);
+module.exports = mongoose.model('Reminder', ReminderSchema);
 
 
 

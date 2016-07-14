@@ -3,39 +3,39 @@
 var ajax = require('./ajax');
 
 module.exports = {
-	getAllTodos: getAllTodos,
-	createTodo: createTodo,
-	deleteTodo: deleteTodo,
-	updateTodo: updateTodo
+	getAllReminders: getAllReminders,
+	createReminder: createReminder,
+	deleteReminder: deleteReminder,
+	updateReminder: updateReminder
 };
 
 
-function getAllTodos() {
-	var url = '/todos';
+function getAllReminders() {
+	var url = '/reminders';
 	var data = {};
 	var type = 'GET';
 
 	return ajax(url, data, type);
 };
 
-function createTodo(todo) {
-	var url = '/todos';
+function createReminder(reminder) {
+	var url = '/reminders';
 	var data = todo;
 
 	return ajax(url, data);
 }
 
-function deleteTodo(todo) {
-	var url = '/todos/' + todo._id;
+function deleteReminder(reminder) {
+	var url = '/reminders/' + reminder._id;
 	var data = {};
 	var type = 'DELETE';
 
 	return ajax(url, data, type);
 };
 
-function updateTodo(todo) {
-	var url = '/todos/' + todo._id;
-	var data = todo;
+function updateReminder(reminder) {
+	var url = '/reminders/' + reminder._id;
+	var data = reminder;
 	var type = 'PUT';
 
 	return ajax(url, data, type);
