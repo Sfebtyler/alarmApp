@@ -122,13 +122,17 @@ ul.list-unstyled{
 	padding-left: 300;
 }
 @media screen and (max-width:1284px){
-#notCheck {
-	width:calc(85%);
+	#notCheck {
+		width:calc(85%);
+	}
+	#check{
+		width:calc(10%);
+	}
+	#addButton{
+		margin:0px auto;
+	}
 }
-#check{
-	width:calc(10%);
-}
-#addButton{
-	margin:0px auto;
-}
+
+.react-date-picker__month-view--theme-default .react-date-picker__month-view-day--today-highlight{
+	color:green;
 }	
