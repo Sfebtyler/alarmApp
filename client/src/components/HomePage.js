@@ -5,6 +5,7 @@ var RemindersList = require('./reminders/remindersList');
 var UpcomingList = require('./reminders/upcomingList');
 var OverdueList = require('./reminders/overdueList');
 var AddButton = require('./reminders/button');
+var Link = require('react-router').Link;
 
 
 var Home = React.createClass({
@@ -16,7 +17,7 @@ var Home = React.createClass({
 					<RemindersList />
 					<OverdueList />
 				</div>
-				<AddButton />
+				<Link to='/reminders-page'><AddButton /></Link>
 			</div>
 		);
 	}
