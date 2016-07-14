@@ -89,12 +89,14 @@ div>ul>li{
 #check {
 	float:left;
 	line-height:45px;
+	width:calc(10%);
 	/*zoom:1.5;*/
 }
 
 #notCheck {
 	float:left;
 	margin-bottom:10px;
+	width:calc(85%);
 }
 #markComplete{
 	padding-left:10px;
