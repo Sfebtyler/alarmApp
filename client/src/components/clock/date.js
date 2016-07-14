@@ -37,16 +37,33 @@ var dateMount = React.createClass({
 	    return days[ now.getDay() ]
 	},
 
+	getDaySuffix: function() {
+		var daySuffix = ''
+		var now = new Date()
+
+
+		if (now.getDate() == 1 || now.getDate() == 21 || now.getDate() == 31) {
+			return daySuffix = 'st'
+		}else if (now.getDate() == 2 || now.getDate() == 22) {
+			return daySuffix = 'nd'
+		}else if (now.getDate() == 3 || now.getDate() == 23) {
+			return daySuffix = 'rd'
+		}else {
+			return daySuffix = 'th'
+		}
+	},
+
 	getDisplayDate: function() {
+		var now = new Date()
 
 
-	var now = new Date()
+		var dayName = this.getDayName()
+		var month = this.getMonthName()
+		var day = now.getDate()
 
-	var dayName = this.getDayName()
-	var month = this.getMonthName()
-	var day = now.getDay()
+		var daySuffix = this.getDaySuffix()
 
-	var date = dayName + ', ' + month + ' ' + day
+		var date = dayName + ', ' + month + ' ' + day + daySuffix
 
 	    return date;
 	},
