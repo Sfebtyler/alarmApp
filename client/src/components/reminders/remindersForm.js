@@ -12,18 +12,18 @@ var RemindersForm = React.createClass({
 			<div>
 				<form onSubmit={this.props.saveReminder}>
 					<TextInput 
-						name="Title"
+						name="title"
 						placeholder="Enter a Title"	
-						value={this.props.reminder.title}
+						// value={this.props.reminder.title}
 						saveReminderState={this.props.saveReminderState}
-						error={this.props.errors.title}											
+						// error={this.props.errors.title}											
 					/>
 					<TextInput
-						name="Description"
+						name="description"
 						placeholder="Enter a Description"
-						value={this.props.reminder.description}
+						// value={this.props.reminder.description}
 						saveReminderState={this.props.saveReminderState}
-						error={this.props.errors.description}
+						// error={this.props.errors.description}
 					/>
 					<DateTime />
 					<br></br>

@@ -23,7 +23,7 @@ var ManageReminderPage = React.createClass({
 
 		if (reminderId) {
 			this.setState({
-				reminder: TodoStore.getReminderById(ReminderId)
+				reminder: ReminderStore.getReminderById(ReminderId)
 			});
 		}
 		
@@ -35,7 +35,7 @@ var ManageReminderPage = React.createClass({
 		var newReminder = Object.assign({}, this.state.reminder);
 
 		// sort of like reminder.title or reminder.description
-		newTodo[field] = value;
+		newReminder[field] = value;
 
 		this.setState({
 			reminder: newReminder
@@ -46,18 +46,18 @@ var ManageReminderPage = React.createClass({
 	saveReminder: function (event) {
 		event.preventDefault();
 
-		if (!this.todoFormIsValid()) {
+		if (!this.reminderFormIsValid()) {
 			return;
 		}
 
 		if (this.state.reminder._id) {
-			ReminderActionCreator.updateTodo(this.state.reminder);
+			ReminderActionCreator.updateReminder(this.state.reminder);
 		}
 		else {
-			ReminderActionCreator.createTodo(this.state.reminder);
+			ReminderActionCreator.createReminder(this.state.reminder);
 		}
 
-		browserHistory.push('/reminders-page');
+		browserHistory.push('/');
 	},
 
 	reminderFormIsValid: function () {
@@ -84,11 +84,11 @@ var ManageReminderPage = React.createClass({
 	render: function () {
 		return (
 			<div>
-				<h2>Manage Todos</h2>
-				<TodoForm
+				<h2>Manage Reminders</h2>
+				<ReminderForm
 					reminder={this.state.reminder}
 					saveReminderState={this.saveReminderState}
-					saveReminder={this.saveTodo}
+					saveReminder={this.saveReminder}
 					errors={this.state.errors}
 				/>
 			</div>

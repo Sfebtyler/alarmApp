@@ -9,7 +9,7 @@ var InitializeActionCreator = {
 		var RemindersPromise = API.getAllReminders();
 
 		RemindersPromise
-			.then(function(todos) {
+			.then(function(reminders) {
 				Dispatcher.dispatch({
 					actionType: ActionTypes.INITIALIZE,
 					initialData: {

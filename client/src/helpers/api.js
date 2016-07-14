@@ -20,7 +20,7 @@ function getAllReminders() {
 
 function createReminder(reminder) {
 	var url = '/reminders';
-	var data = todo;
+	var data = reminder;
 
 	return ajax(url, data);
 }
