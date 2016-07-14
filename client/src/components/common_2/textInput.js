@@ -13,7 +13,7 @@ var TextInput = React.createClass({
 
 		return (
 			<div className={wrapperClass}>
-				<label htmlFor={this.props.name}>{this.props.name}</label>
+				<label htmlFor={this.props.name}>{this.props.placeholder}</label>
 				<div className="field">
 					<input 
 						name={this.props.name}
