@@ -1,25 +1,25 @@
 
-var Todo = require('./model');
+var Reminder = require('./model');
 
 module.exports = {
 	//CREATE
-	create: createTodo,
+	create: createReminder,
 
 	//READ
-	index: indexTodo,
-	show: showTodo,
+	index: indexReminder,
+	show: showReminder,
 
 	//UPDATE
-	update: updateTodo,
+	update: updateReminder,
 
 	//DELETE
-	delete: deleteTodo
+	delete: deleteReminder
 };
 
 
-function createTodo(req, res) 
+function createReminder(req, res) 
 {
-	Todo.create(
+	Reminder.create(
 	{
 		title: req.body.title,
 		description: req.body.description,
@@ -33,10 +33,10 @@ function createTodo(req, res)
 	})
 };
 
-//Delete a Todo item
-function deleteTodo(req, res) 
+//Delete a Reminder item
+function deleteReminder(req, res) 
 {
-	findTodo(req, res, function(item) 
+	findReminder(req, res, function(item) 
 	{
 		item.remove(function (err) 
 		{
@@ -48,9 +48,9 @@ function deleteTodo(req, res)
 };
 
 
-function indexTodo(req, res)
+function indexReminder(req, res)
 {
-	Todo.find(function (err, collection)
+	Reminder.find(function (err, collection)
 	{
 		if (err) return reportError(err, res)
 
@@ -59,18 +59,18 @@ function indexTodo(req, res)
 };
 
 
-function showTodo(req, res) 
+function showReminder(req, res) 
 {
-	findTodo(req, res, function(item)
+	findReminder(req, res, function(item)
 	{
 		res.json(item)
 	})
 };
 
 
-function updateTodo(req, res) 
+function updateReminder(req, res) 
 {
-	findTodo(req, res, function(item)
+	findReminder(req, res, function(item)
 	{
 		item.title = req.body.title;
 		item.description = req.body.description;
@@ -88,10 +88,10 @@ function updateTodo(req, res)
 
 
 //Check if "item" is null and error appropriately
-function findTodo(req, res, success)
+function findReminder(req, res, success)
 {
 	var id = req.params.id;
-	Todo.findById(id, function(err, item)
+	Reminder.findById(id, function(err, item)
 	{
 		if (err) return reportError(err, res)
 

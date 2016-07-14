@@ -6,14 +6,14 @@ var ActionTypes = require('../constants/actionTypes');
 
 var InitializeActionCreator = {
 	initializeApp: function () {
-		var todosPromise = API.getAllTodos();
+		var RemindersPromise = API.getAllReminders();
 
-		todosPromise
+		RemindersPromise
 			.then(function(todos) {
 				Dispatcher.dispatch({
 					actionType: ActionTypes.INITIALIZE,
 					initialData: {
-						todos: todos
+						reminders: reminders
 					}
 				});
 			});
