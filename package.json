@@ -41,4 +41,5 @@
     "toastr": "^2.1.2",
     "vinyl-source-stream": "^1.1.0",
     "react-bootstrap-datetimepicker": "^0.0.22"
+  }
 }
