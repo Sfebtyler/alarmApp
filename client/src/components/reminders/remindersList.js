@@ -2,6 +2,9 @@
 
 var React = require('react');
 var ReminderActionCreator = require('../../actions/reminderActionCreator');
+var ClockMount = require('../clock/basicClock.js');
+var DateMount = require('../clock/date.js');
+
 
 var Reminders = React.createClass({
 	deleteReminder: function (reminder, event) {
@@ -34,7 +37,7 @@ var Reminders = React.createClass({
 		return (
 			<div>
 				<div className="col-sm-4, col-md-4">
-					<div className="titles"><h3>Today</h3><div id="today-date">Monday July 11 4:35</div></div>
+					<div className="titles"><h3><DateMount /></h3><div id="today-date"><ClockMount /></div></div>
 
 					<div id="today" className="overflow">
 						<ul>
