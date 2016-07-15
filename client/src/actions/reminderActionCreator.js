@@ -23,7 +23,7 @@ var ReminderActionCreator = {
 			});
 	},
 
-	deleteReminder: function (Reminder) {
+	deleteReminder: function (reminder) {
 		var prompt = window.confirm("Do you want to Delete this Reminder?")
 
 		if (!prompt) {
