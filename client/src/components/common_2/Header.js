@@ -7,6 +7,7 @@ var Header = React.createClass({
 	render: function () {
 		return (
 			<div>
+			
 				<nav className="navbar navbar-inverse">
   					<ul className='nav navbar-nav'>
   						<li><Link to='/'>Home</Link></li>
