@@ -20,8 +20,9 @@ var Reminders = React.createClass({
 	render: function() {
 
 		var createReminder = function (reminder) {
+
 			return (
-				<Link to ={'/reminders-page/' + reminder._id} key={reminder._id}>
+				<Link to ={'/reminders-page/' + reminder._id} id="list-item" key={reminder._id}>
 				<li>
 					<div className="row" >
 						<div id="check" className="col-sm-2, col-md-1, col-lg-1">

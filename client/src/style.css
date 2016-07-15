@@ -82,7 +82,7 @@ h3{
 }
 
 div>ul>li{
-	margin-left:-20px;
+	margin-left:-1000px;
 }
 
 
@@ -136,6 +136,9 @@ button:hover{
 }
 ul.list-unstyled{
 	padding-left: 300;
+}
+#list-item{
+	color:black;
 }
 @media screen and (max-width:1284px){
 	#notCheck {

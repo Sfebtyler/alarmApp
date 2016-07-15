@@ -23,8 +23,8 @@ function createReminder(req, res)
 	{
 		title: req.body.title,
 		description: req.body.description,
-		completed: req.body.completed,
-		// dueDate: req.body.
+		completed: req.body.completed
+
 	},
 
 	function (err, item) {

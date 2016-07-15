@@ -39,7 +39,7 @@ updateReminder: function (reminder, event) {
 					/>
 					<DateTime />
 					<br></br>
-					<input type="checkbox"></input>
+					<input type="checkbox" ></input>
 					<span id="markComplete">Mark as Completed</span>
 					<br></br> 
 					<br></br>
