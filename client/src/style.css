@@ -135,4 +135,5 @@ ul.list-unstyled{
 
 .react-date-picker__month-view--theme-default .react-date-picker__month-view-day--today-highlight{
 	color:green;
+	font-weight: 900;
 }	

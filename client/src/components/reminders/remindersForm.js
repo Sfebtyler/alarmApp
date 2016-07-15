@@ -7,6 +7,17 @@ var DateTime = require('../common_2/dateTimePicker');
 
 var RemindersForm = React.createClass({
 
+deleteReminder: function (reminder, event) {
+	event.preventDefault();
+	ReminderActionCreator.deleteReminder(reminder);
+},
+
+updateReminder: function (reminder, event) {
+	event.preventDefault();
+	reminder.completed ? reminder.completed = false : reminder.completed = true;
+	ReminderActionCreator.updateReminder(reminder);
+},
+
 	render: function () {
 		return (
 			<div>
@@ -14,16 +25,16 @@ var RemindersForm = React.createClass({
 					<TextInput 
 						name="title"
 						placeholder="Title"	
-						// value={this.props.reminder.title}
+						value={this.props.reminder.title}
 						saveReminderState={this.props.saveReminderState}
-						// error={this.props.errors.title}											
+						error={this.props.errors.title}											
 					/>
 					<TextInput
 						name="description"
 						placeholder="Description"
-						// value={this.props.reminder.description}
+						value={this.props.reminder.description}
 						saveReminderState={this.props.saveReminderState}
-						// error={this.props.errors.description}
+						error={this.props.errors.description}
 					/>
 					<DateTime />
 					<br></br>
@@ -33,9 +44,10 @@ var RemindersForm = React.createClass({
 					<br></br>
 					<input 
 						type="submit" 
-						value="Save Reminder"
+						value="Save"
 						className="btn btn-success btn-md" 
 					/>
+					<a href="#" onClick={this.deleteReminder.bind(this, reminder)} className='btn btn-danger'>Delete</a>
 				</form>
 			</div>
 		);
