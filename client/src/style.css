@@ -124,6 +124,18 @@ button{
 	height:34px;
 	margin-bottom:2px;
 }
+#delete-btn{
+	border:1px solid grey;
+	background-color:red;
+	width:75px;
+	color:black;
+	height:34px;
+	margin-bottom:2px;
+}
+#delete-btn:hover{
+	background-color:#aff;
+	color:black;
+}
 #save-btn{
 	width:75px;
 }
