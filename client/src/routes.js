@@ -14,6 +14,7 @@ var routes = (
 		<IndexRoute component={HomePage} />
 		<Route path="/reminders-page" component={AddReminderPage} />
 		<Route path="/reminders-completed" component={RemindersCompleted} />
+		<Route path="/reminders-page/:id" component={AddReminderPage} />
 	</Route>
 );
 

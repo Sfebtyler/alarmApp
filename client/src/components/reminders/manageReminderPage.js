@@ -23,7 +23,7 @@ var ManageReminderPage = React.createClass({
 
 		if (reminderId) {
 			this.setState({
-				reminder: ReminderStore.getReminderById(ReminderId)
+				reminder: ReminderStore.getReminderById(reminderId)
 			});
 		}
 		
