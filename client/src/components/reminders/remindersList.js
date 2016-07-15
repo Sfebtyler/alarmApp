@@ -4,6 +4,8 @@ var React = require('react');
 var ReminderActionCreator = require('../../actions/reminderActionCreator');
 var ClockMount = require('../clock/basicClock.js');
 var DateMount = require('../clock/date.js');
+var ReminderAlert = require('./alert.js')
+
 
 
 var Reminders = React.createClass({
@@ -17,8 +19,22 @@ var Reminders = React.createClass({
 		reminder.completed ? reminder.completed = false : reminder.completed = true;
 		ReminderActionCreator.updateReminder(reminder);
 	},
+	//testing items
+	testNotification: function (event) {
+		event.preventDefault();
+		this.refs.rAlert.reminderAlert();
+	},
+
+	/*	<form onSubmit={this.testNotification}>
+		<input type="submit" value="test notification" />
+		</form>
+	*/
+
+	//end of testing items
+
 	render: function() {
 		var createReminder = function(reminder){
+
 			return (
 				<li key={reminder._id}>
 					<div className="row" >
@@ -36,6 +52,9 @@ var Reminders = React.createClass({
 		};
 		return (
 			<div>
+
+				<ReminderAlert ref='rAlert' />
+				
 				<div className="col-sm-4, col-md-4">
 					<div className="titles"><h3><DateMount /></h3><div id="today-date"><ClockMount /></div></div>
 

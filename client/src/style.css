@@ -136,3 +136,49 @@ ul.list-unstyled{
 .react-date-picker__month-view--theme-default .react-date-picker__month-view-day--today-highlight{
 	color:green;
 }	
+
+.notify-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: flex-start;
+  align-content: flex-start;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+  word-wrap: break-word;
+}
+
+.notify-item {
+  width: 250px;
+  margin: 5px 10px;
+  color: #FFF;
+  border-radius: 5px;
+}
+
+.notify-item:hover {
+  box-shadow: 0 0 10px 0 rgb(15, 15, 15);
+}
+
+.notify-item > p {
+  font-family: 'Lora', serif;
+  margin: 10px;
+}
+
+.notify-item.success {
+  background-color: rgba(81, 163, 81, 1);
+}
+
+.notify-item.error {
+  background-color: rgba(203, 100, 94, 1);
+}
+
+.notify-item.info {
+  background-color: rgba(33, 150, 243, 1);
+}
+
+.notify-title {
+  font-weight: 700;
+}
