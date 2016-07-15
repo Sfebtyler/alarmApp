@@ -37,7 +37,11 @@ updateReminder: function (reminder, event) {
 						saveReminderState={this.props.saveReminderState}
 						error={this.props.errors.description}
 					/>
-					<DateTime />
+					<DateTime
+						name="dueDate"
+						value={this.props.reminder.dueDate}
+						onChange={this.props.saveReminderState}
+					/>
 					<br></br>
 					<input type="checkbox" ></input>
 					<span id="markComplete">Mark as Completed</span>
@@ -54,7 +58,6 @@ updateReminder: function (reminder, event) {
 						id="cancel-btn"
 						className="btn btn-secondary btn-md">Cancel</button>
 						</Link>
-					{/*<a href="#" onClick={this.deleteReminder.bind(this, reminder)} className='btn btn-danger'>Delete</a>*/}
 				</form>
 			</div>
 		);

@@ -23,8 +23,8 @@ function createReminder(req, res)
 	{
 		title: req.body.title,
 		description: req.body.description,
-		completed: req.body.completed
-
+		completed: req.body.completed,
+		dueDate: req.body.dueDate
 	},
 
 	function (err, item) {
@@ -76,6 +76,7 @@ function updateReminder(req, res)
 		item.title = req.body.title;
 		item.description = req.body.description;
 		item.completed = req.body.completed;
+		item.dueDate = req.body.dueDate;
 
 		item.save(function(err)
 		{

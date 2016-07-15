@@ -5,6 +5,7 @@ var ReminderActionCreator = require('../../actions/reminderActionCreator');
 var ClockMount = require('../clock/basicClock.js');
 var DateMount = require('../clock/date.js');
 var Link = require('react-router').Link;
+var Moment = require('moment');
 
 var Reminders = React.createClass({
 	deleteReminder: function (reminder, event) {
@@ -31,7 +32,7 @@ var Reminders = React.createClass({
 						<div id="notCheck" className="col-sm-10, col-md-11, col-lg-11">
 							<span id="title">{reminder.title}</span>
 							<br />
-							{/*<span id="date">{reminder.date}</span>*/}
+							<span id="date">{Moment(reminder.dueDate).format('MMMM Do YYYY, h:mm a')}</span>
 						</div>
 					</div>
 				</li>	
