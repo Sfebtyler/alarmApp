@@ -3,6 +3,7 @@
 var React = require('react');
 var TextInput = require('../common_2/textInput');
 var DateTime = require('../common_2/dateTimePicker');
+var Link = require('react-router').Link;
 
 
 var RemindersForm = React.createClass({
@@ -43,11 +44,17 @@ updateReminder: function (reminder, event) {
 					<br></br> 
 					<br></br>
 					<input 
+						id="save-btn"
 						type="submit" 
 						value="Save"
 						className="btn btn-success btn-md" 
 					/>
-					<a href="#" onClick={this.deleteReminder.bind(this, reminder)} className='btn btn-danger'>Delete</a>
+	
+					<Link to='/'><button 
+						id="cancel-btn"
+						className="btn btn-secondary btn-md">Cancel</button>
+						</Link>
+					{/*<a href="#" onClick={this.deleteReminder.bind(this, reminder)} className='btn btn-danger'>Delete</a>*/}
 				</form>
 			</div>
 		);

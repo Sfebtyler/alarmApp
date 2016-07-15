@@ -4,7 +4,7 @@ var React = require('react');
 var ReminderActionCreator = require('../../actions/reminderActionCreator');
 var ClockMount = require('../clock/basicClock.js');
 var DateMount = require('../clock/date.js');
-
+var Link = require('react-router').Link;
 
 var Reminders = React.createClass({
 	deleteReminder: function (reminder, event) {
@@ -18,20 +18,23 @@ var Reminders = React.createClass({
 		ReminderActionCreator.updateReminder(reminder);
 	},
 	render: function() {
-		var createReminder = function(reminder){
+
+		var createReminder = function (reminder) {
 			return (
-				<li key={reminder._id}>
+				<Link to ={'/reminders-page/' + reminder._id} key={reminder._id}>
+				<li>
 					<div className="row" >
 						<div id="check" className="col-sm-2, col-md-1, col-lg-1">
-							<input type="checkbox"/>
+							<input type="checkbox" onClick={this.updateReminder.bind(this, reminder)}/>
 						</div>
 						<div id="notCheck" className="col-sm-10, col-md-11, col-lg-11">
 							<span id="title">{reminder.title}</span>
 							<br />
-							<span id="date">{reminder.date}</span>
+							{/*<span id="date">{reminder.date}</span>*/}
 						</div>
 					</div>
 				</li>	
+				</Link>
 			);
 		};
 		return (

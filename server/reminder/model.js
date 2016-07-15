@@ -6,7 +6,7 @@ var ReminderSchema = new mongoose.Schema({
 	completed: { type: Boolean, default: false },
 	createdAt: { type: Date, default: Date.now },
 	updatedAt: Date,
-	dueDate: { type: Date, required: true }
+	// dueDate: { type: Date, required: true }
 })
 
 ReminderSchema.pre('save', function(done)
