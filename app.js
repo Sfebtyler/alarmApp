@@ -8,7 +8,8 @@ var skipper = require('skipper');
 
 
 //Configure Mongoose
-mongoose.connect('mongodb://mongodb.cs.dixie.edu/EricBelliston')
+// mongoose.connect('mongodb://mongodb.cs.dixie.edu/EricBelliston')
+mongoose.connect('mongodb://localhost/EricBelliston')
 
 mongoose.connection.on('connected', function() {
 	console.log("Data Base Connected...\n".green);
