@@ -114,12 +114,31 @@ button{
 	outline:none;
 	margin:5px;
 }
-
+#cancel-btn{
+	margin-left: 5px;
+	margin-right: 5px;
+	border:1px solid grey;
+	background-color:#ddd;
+	width:75px;
+	color:black;
+	height:34px;
+	margin-bottom:2px;
+}
+#save-btn{
+	width:75px;
+}
+#cancel-btn:hover{
+	background-color:#eee;
+	color:black;
+}
 button:hover{
 	background:lightgreen;
 }
 ul.list-unstyled{
 	padding-left: 300;
+}
+#list-item{
+	color:black;
 }
 @media screen and (max-width:1284px){
 	#notCheck {

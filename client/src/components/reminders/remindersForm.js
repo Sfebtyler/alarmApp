@@ -3,6 +3,7 @@
 var React = require('react');
 var TextInput = require('../common_2/textInput');
 var DateTime = require('../common_2/dateTimePicker');
+var Link = require('react-router').Link;
 
 
 var RemindersForm = React.createClass({
@@ -36,18 +37,27 @@ updateReminder: function (reminder, event) {
 						saveReminderState={this.props.saveReminderState}
 						error={this.props.errors.description}
 					/>
-					<DateTime />
+					<DateTime
+						name="dueDate"
+						value={this.props.reminder.dueDate}
+						onChange={this.props.saveReminderState}
+					/>
 					<br></br>
-					<input type="checkbox"></input>
+					<input type="checkbox" ></input>
 					<span id="markComplete">Mark as Completed</span>
 					<br></br> 
 					<br></br>
 					<input 
+						id="save-btn"
 						type="submit" 
 						value="Save"
 						className="btn btn-success btn-md" 
 					/>
-					<a href="#" onClick={this.deleteReminder.bind(this, reminder)} className='btn btn-danger'>Delete</a>
+	
+					<Link to='/'><button 
+						id="cancel-btn"
+						className="btn btn-secondary btn-md">Cancel</button>
+						</Link>
 				</form>
 			</div>
 		);
