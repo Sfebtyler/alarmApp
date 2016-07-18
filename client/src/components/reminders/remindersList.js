@@ -23,7 +23,7 @@ var Reminders = React.createClass({
 	//testing items
 	testNotification: function (event) {
 		event.preventDefault();
-		this.refs.rAlert.reminderAlert();
+		this.refs.rAlert.dateReached();
 	},
 
 	/*	<form onSubmit={this.testNotification}>
@@ -32,6 +32,7 @@ var Reminders = React.createClass({
 	*/
 
 	//end of testing items
+
 
 	render: function() {
 
