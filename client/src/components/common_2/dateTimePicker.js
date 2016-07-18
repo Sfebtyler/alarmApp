@@ -2,9 +2,7 @@
 
 var React = require('react');
 var $ = require('jquery');
-var DateTimeField = require('react-date-picker').Calendar;
 var Calendar = require('react-date-picker').Calendar;
-// var DateTimeField = require('react-date-picker').ClockInput;
 
 var DateTime = React.createClass({
 	saveState: function (newDate) {

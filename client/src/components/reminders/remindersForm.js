@@ -5,22 +5,27 @@ var TextInput = require('../common_2/textInput');
 var DateTime = require('../common_2/dateTimePicker');
 var Link = require('react-router').Link;
 var ReminderActionCreator = require('../../actions/reminderActionCreator');
-
+var Moment = require('moment');
 
 var RemindersForm = React.createClass({
 
-deleteReminder: function (reminder, event) {
-	event.preventDefault();
-	ReminderActionCreator.deleteReminder(reminder);
-},
+	showDelete: function (reminder) {
+		//console.log(Moment(this.props.reminder.dueDate).format('MMMM Do YYYY'))
+	    //console.log(Moment(Date.now()).format('MMMM Do YYYY'))
+		if (reminder._id) {
+				var deleteBtn = (<button onClick={this.deleteReminder.bind(this, this.props.reminder)} id="delete-btn" className="btn btn-secondary btn-md"><Link to={"/"} id="delete-item">Delete</Link></button>);
+			}
 
-updateReminder: function (reminder, event) {
-	event.preventDefault();
-	reminder.completed ? reminder.completed = false : reminder.completed = true;
-	ReminderActionCreator.updateReminder(reminder);
-},
+			return deleteBtn;
+	},
+
+	deleteReminder: function (reminder, event) {
+		event.preventDefault();
+		ReminderActionCreator.deleteReminder(reminder);
+	},
 
 	render: function () {
+
 		return (
 			<div>
 				<form onSubmit={this.props.saveReminder}>
@@ -61,9 +66,7 @@ updateReminder: function (reminder, event) {
 							className="btn btn-secondary btn-md">Cancel
 						</button>
 					</Link>
-					<Link to='/'>
-						<button onClick={this.deleteReminder.bind(this, this.props.reminder)} id="delete-btn" className="btn btn-secondary btn-md">Delete</button>
-					</Link>
+					{this.showDelete(this.props.reminder)}
 				</form>
 			</div>
 		);
@@ -71,3 +74,5 @@ updateReminder: function (reminder, event) {
 });
 
 module.exports = RemindersForm;
+
+//<button onClick={this.deleteReminder.bind(this, this.props.reminder)} id="delete-btn" className="btn btn-secondary btn-md">Delete</button>

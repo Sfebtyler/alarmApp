@@ -5,7 +5,7 @@ var ReminderForm = require('./remindersForm');
 var ReminderActionCreator = require('../../actions/reminderActionCreator');
 var browserHistory = require('react-router').browserHistory;
 var ReminderStore = require('../../stores/reminderStore');
-
+var Toastr = require('toastr');
 
 var ManageReminderPage = React.createClass({
 	getInitialState: function () {
@@ -71,6 +71,10 @@ var ManageReminderPage = React.createClass({
 
 		if (this.state.reminder.description.length < 3) {
 			newErrors.description = 'Description cannot be less than 3 characters...';
+			formIsValid = false;
+		}
+		if(!this.state.reminder.dueDate){
+			Toastr.error("Please select a Date and/or Time");
 			formIsValid = false;
 		}
 
