@@ -8,7 +8,7 @@ var App = React.createClass({
 	render: function() {
 		return (
 			<div>
-				<div><h1>Testing</h1></div>
+				<div><h1>Memorable Memos</h1></div>
 				<Header />
 				<div className="container">
 					{this.props.children}

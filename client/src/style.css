@@ -5,7 +5,7 @@ font-family: "Times New Roman", Times, serif;
 h1{
 	border-radius:5px;
 	text-align: center;
-	color:#4c9;
+	color: #4c9;
 	font-size:50px;
 	text-shadow: 1px 1px black;
 	font-weight:900;
@@ -185,7 +185,7 @@ ul.list-unstyled{
 }
 
 .notify-item {
-  width: 250px;
+  width: 350px;
   margin: 5px 10px;
   color: #FFF;
   border-radius: 5px;
@@ -198,6 +198,7 @@ ul.list-unstyled{
 .notify-item > p {
   font-family: 'Lora', serif;
   margin: 10px;
+  font-size: 16px;
 }
 
 .notify-item.success {
