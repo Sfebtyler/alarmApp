@@ -2,6 +2,7 @@
 
 var React = require('react');
 var TextInput = require('../common_2/textInput');
+var TextAreaInput = require('../common_2/textAreaInput');
 var DateTime = require('../common_2/dateTimePicker');
 var Link = require('react-router').Link;
 var ReminderActionCreator = require('../../actions/reminderActionCreator');
@@ -36,7 +37,7 @@ var RemindersForm = React.createClass({
 						saveReminderState={this.props.saveReminderState}
 						error={this.props.errors.title}											
 					/>
-					<TextInput
+					<TextAreaInput
 						name="description"
 						placeholder="Description"
 						value={this.props.reminder.description}

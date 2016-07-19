@@ -12,8 +12,7 @@ var Moment = require('moment');
 var Home = React.createClass({
   getInitialState: function(){
     return{
-      reminders: ReminderStore.getAllReminders(),
-      //todayReminders: this.getTodayReminders()
+      reminders: ReminderStore.getAllReminders()
     }
   },
   componentWillMount: function(){
@@ -25,40 +24,51 @@ var Home = React.createClass({
   },
   onChange: function(){
     this.setState({
-      reminders: ReminderStore.getAllReminders(),
-     // todayReminders: this.getTodayReminders()
+      reminders: ReminderStore.getAllReminders()
   	});
   },
   getTodayReminders: function(){
-  	console.log("is this working?")
   	var todayReminders = [];
-  	console.log(this.state.reminders)
-  	if (this.state.reminders != null){
-	    for (var i; i<this.state.reminders.length; i++){
-	    	reminder = this.state.reminders[i];
-	    	console.log(reminder)
-	    	if (Moment(reminder.dueDate).format('MMMM Do YYYY') === Moment(Date.now()).format('MMMM Do YYYY')){
-	    		todayReminders.push(reminder)
-	    		console.log(reminder)
-	    	}
-	    }
-	    console.log(todayReminders)
-	    return todayReminders
-	}
+    for (var i = 0; i<this.state.reminders.length; i++){
+    	var reminder = this.state.reminders[i];
+    	if (Moment(reminder.dueDate).format('MMMM Do YYYY') === Moment(Date.now()).format('MMMM Do YYYY') && reminder.completed === false){
+    		todayReminders.push(reminder)
+    	}
+    }
+    return todayReminders
   },
-
+  getOverdueReminders: function(){
+  	var OverdueReminders = [];
+    for (var i = 0; i<this.state.reminders.length; i++){
+    	var reminder = this.state.reminders[i];
+    	if (Moment(reminder.dueDate).format('MMMM Do YYYY') < Moment(Date.now()).format('MMMM Do YYYY') && reminder.completed === false){
+    		OverdueReminders.push(reminder)
+    	}
+    }
+    return OverdueReminders
+  },
+  getUpcomingReminders: function(){
+  	var UpcomingReminders = [];
+    for (var i = 0; i<this.state.reminders.length; i++){
+    	var reminder = this.state.reminders[i];
+    	if (Moment(reminder.dueDate).format('MMMM Do YYYY') > Moment(Date.now()).format('MMMM Do YYYY') && reminder.completed === false){
+    		UpcomingReminders.push(reminder)
+    	}
+    }
+    return UpcomingReminders
+  },
 	render: function () {
 		return (
 			<div>
 				<div className="row">
 					<UpcomingList 						
-						reminders={this.state.reminders}
+						reminders={this.getUpcomingReminders()}
 					/>
 					<RemindersList 						
 						reminders={this.getTodayReminders()}
 					/>
 					<OverdueList 
-						reminders={this.state.reminders}
+						reminders={this.getOverdueReminders()}
 					/>
 				</div>
 				<Link to='/reminders-page'><AddButton /></Link>
