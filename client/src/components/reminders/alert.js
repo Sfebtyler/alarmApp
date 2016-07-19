@@ -9,6 +9,13 @@ var _ = require('lodash')
 
 var reminderFunction = React.createClass({
 
+	sound: function () {
+	var audio = new Audio('/images/DingLing.mp3');
+	console.log('audio')
+	audio.play();
+	},
+
+
 	componentDidMount: function () {
 		this.timerInterval = setInterval(this.dateReached, 1000);
 	},
@@ -28,8 +35,10 @@ var reminderFunction = React.createClass({
 			if (cDueDate === cCurrentDate) {
 				console.log('there was a match')
 				that.refs.notificator.success(reminder.title, reminder.description, 900000);
-			}
-		})
+				that.sound()
+
+		}
+	})
 
 				 
 
