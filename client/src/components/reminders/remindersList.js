@@ -38,7 +38,7 @@ var Reminders = React.createClass({
 
 			return (
 				<Link to={"/reminders-page/" + reminder._id} id="list-item" key={reminder._id}>
-				<li>
+				<li id="list-border"> 
 					<div className="row">
 						<div id="check" className="col-sm-2, col-md-1, col-lg-1">
 							<input type="checkbox" onClick={this.updateReminder.bind(this, reminder)} />
@@ -61,8 +61,8 @@ var Reminders = React.createClass({
 				<div className="col-sm-4, col-md-4">
 					<div className="titles"><h3><DateMount /></h3><div id="today-date"><ClockMount /></div></div>
 
-					<div id="today" className="overflow">
-						<ul>
+					<div id="today" className="overflow-completed">
+						<ul id="ul-list">
 							{this.props.reminders.map(createReminder, this)}
 						</ul>
 					</div>
