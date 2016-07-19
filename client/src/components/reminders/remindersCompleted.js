@@ -79,7 +79,7 @@ var RemindersCompleted = React.createClass({
 				<div className="col-sm-12, col-md-12">
 					<div className="titles"><h3>Completed</h3></div>
 
-					<div id="today" className="overflow-completed">
+					<div id="completed" className="overflow-completed">
 						<ul id="ul-list">
 							{this.getCompletedReminders().map(createReminder, this)}
 						</ul>

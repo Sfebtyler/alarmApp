@@ -11,8 +11,6 @@ var Moment = require('moment');
 var RemindersForm = React.createClass({
 
 	showDelete: function (reminder) {
-		//console.log(Moment(this.props.reminder.dueDate).format('MMMM Do YYYY'))
-	    //console.log(Moment(Date.now()).format('MMMM Do YYYY'))
 		if (reminder._id) {
 				var deleteBtn = (<button onClick={this.deleteReminder.bind(this, this.props.reminder)} id="delete-btn" className="btn btn-secondary btn-md"><Link to={"/"} id="delete-item">Delete</Link></button>);
 			}
@@ -21,6 +19,7 @@ var RemindersForm = React.createClass({
 	},
 
 	deleteReminder: function (reminder, event) {
+
 		event.preventDefault();
 		ReminderActionCreator.deleteReminder(reminder);
 	},
@@ -46,12 +45,9 @@ var RemindersForm = React.createClass({
 					/>
 					<DateTime
 						name="dueDate"
-						value={this.props.reminder.dueDate}
+						// value={this.props.reminder.dueDate}
 						onChange={this.props.saveReminderState}
 					/>
-					<br></br>
-					<input type="checkbox" ></input>
-					<span id="markComplete">Mark as Completed</span>
 					<br></br> 
 					<br></br>
 					<input 
@@ -75,5 +71,3 @@ var RemindersForm = React.createClass({
 });
 
 module.exports = RemindersForm;
-
-//<button onClick={this.deleteReminder.bind(this, this.props.reminder)} id="delete-btn" className="btn btn-secondary btn-md">Delete</button>

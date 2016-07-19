@@ -22,6 +22,9 @@ var Reminders = React.createClass({
 	testNotification: function (event) {
 		event.preventDefault();
 		this.refs.rAlert.dateReached();
+
+		// notifier.sucess
+		this.props.onReminder()
 	},
 
 	/*	<form onSubmit={this.testNotification}>
