@@ -173,7 +173,7 @@ button{
 	margin-bottom:2px;
 }
 #delete-btn:hover{
-	background-color:#faa;
+	background-color:#f33;
 	color:black;
 }
 #save-btn{
@@ -191,7 +191,7 @@ ul.list-unstyled{
 }
 #list-item{
 	color:black;
-	
+
 }
 #delete-item{
 	color:black;

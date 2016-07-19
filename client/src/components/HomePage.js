@@ -24,14 +24,14 @@ var Home = React.createClass({
   },
   onChange: function(){
     this.setState({
-      reminders: ReminderStore.getAllReminders()
+      reminders: ReminderStore.getAllReminders(),
   	});
   },
   getTodayReminders: function(){
   	var todayReminders = [];
     for (var i = 0; i<this.state.reminders.length; i++){
     	var reminder = this.state.reminders[i];
-    	if (Moment(reminder.dueDate).format('MMMM Do YYYY') === Moment(Date.now()).format('MMMM Do YYYY') && reminder.completed === false){
+    	if (Moment(reminder.dueDate).format('MMMM Do YYYY HH mm') > Moment(Date.now()).format('MMMM Do YYYY HH mm') && Moment(reminder.dueDate).format('MMMM Do YYYY') === Moment(Date.now()).format('MMMM Do YYYY') && reminder.completed === false){
     		todayReminders.push(reminder)
     	}
     }
@@ -41,7 +41,7 @@ var Home = React.createClass({
   	var OverdueReminders = [];
     for (var i = 0; i<this.state.reminders.length; i++){
     	var reminder = this.state.reminders[i];
-    	if (Moment(reminder.dueDate).format('MMMM Do YYYY') < Moment(Date.now()).format('MMMM Do YYYY') && reminder.completed === false){
+    	if (Moment(reminder.dueDate).format('MMMM Do YYYY HH mm') < Moment(Date.now()).format('MMMM Do YYYY HH mm') && reminder.completed === false){
     		OverdueReminders.push(reminder)
     	}
     }
@@ -66,6 +66,7 @@ var Home = React.createClass({
 					/>
 					<RemindersList 						
 						reminders={this.getTodayReminders()}
+						onReminder={this.onChange}
 					/>
 					<OverdueList 
 						reminders={this.getOverdueReminders()}
