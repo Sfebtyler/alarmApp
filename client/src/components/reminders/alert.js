@@ -32,9 +32,10 @@ var reminderFunction = React.createClass({
 		reminders.forEach(function (reminder) {
 			var cDueDate = moment(reminder.dueDate).format('MMMM Do YYYY, h:mm:ss a');
 			var cCurrentDate = moment(Date.now()).format('MMMM Do YYYY, h:mm:ss a');
+			var cDueDateViewed = moment(reminder.dueDate).format('MMMM Do, h:mm a');
 			if (cDueDate === cCurrentDate) {
 				console.log('there was a match')
-				that.refs.notificator.success(reminder.title, reminder.description, 900000);
+				that.refs.notificator.success(reminder.title, 'Due: ' + cDueDateViewed, 900000);
 				that.sound()
 
 		}
