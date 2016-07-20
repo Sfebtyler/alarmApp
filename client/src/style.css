@@ -235,7 +235,7 @@ ul.list-unstyled{
 .notify-item {
   width: 350px;
   margin: 5px 10px;
-  color: #FFF;
+  color: #000;
   border-radius: 5px;
 }
 
@@ -250,7 +250,7 @@ ul.list-unstyled{
 }
 
 .notify-item.success {
-  background-color: rgba(81, 163, 81, 1);
+  background-color: rgba(68, 204, 153, 1);
 }
 
 .notify-item.error {
