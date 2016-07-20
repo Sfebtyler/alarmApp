@@ -148,35 +148,41 @@ button{
 	font-weight:900;
 	text-decoration: none;
 	outline:none;
-	margin:5px;
+	/*margin:5px;*/
 }
 #cancel-btn{
+	font-family: "Times New Roman", Times, serif;
 	margin-left: 5px;
 	margin-right: 5px;
 	border:1px solid grey;
-	background-color:#ddd;
+	/*background-color:#ddd;*/
+	background: linear-gradient(to bottom, #ddd,  #bbb);
 	width:75px;
 	color:black;
 	height:34px;
-	margin-bottom:2px;
+	/*margin-bottom:2px;*/
 }
 #delete-btn{
+	font-family: "Times New Roman", Times, serif;
 	border:1px solid grey;
-	background-color:red;
+	/*background-color:#cc0000;*/
 	width:75px;
-	color:black;
 	height:34px;
-	margin-bottom:2px;
+	color:#eee;
+	background: linear-gradient(to bottom, red,  #cc0000);
+	/*margin-bottom:2px;*/
 }
 #delete-btn:hover{
-	background-color:#f33;
+	/*background-color:#f55;*/
+	background: linear-gradient(to bottom, #cc0000,  red);
 	color:black;
 }
 #save-btn{
 	width:75px;
 }
 #cancel-btn:hover{
-	background-color:#eee;
+	/*background-color:#eee;*/
+	background: linear-gradient(to bottom, #bbb,  #ddd);
 	color:black;
 }
 button:hover{
@@ -190,7 +196,7 @@ ul.list-unstyled{
 
 }
 #delete-item{
-	color:black;
+	color:#eee;
 	text-decoration:none;
 }
 @media screen and (max-width:1284px){
