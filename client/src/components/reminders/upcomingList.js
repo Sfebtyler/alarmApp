@@ -45,7 +45,7 @@ var Upcoming = React.createClass({
 				<div className="col-sm-4, col-md-4">
 					<div className="titles"><h3>Upcoming</h3></div>
 
-					<div id="today" className="overflow-completed">
+					<div id="upcoming" className="overflow-completed">
 						<ul id="ul-list">
 							{this.props.reminders.map(createReminder, this)}
 						</ul>
