@@ -1,27 +1,36 @@
 'use strict'
 
 var React = require('react');
+var browserHistory = require('react-router').browserHistory;
 var TextInput = require('../common_2/textInput');
 var TextAreaInput = require('../common_2/textAreaInput');
 var DateTime = require('../common_2/dateTimePicker');
 var Link = require('react-router').Link;
 var ReminderActionCreator = require('../../actions/reminderActionCreator');
 var Moment = require('moment');
+var toastr = require('toastr');
 
 var RemindersForm = React.createClass({
 
 	showDelete: function (reminder) {
 		if (reminder._id) {
-				var deleteBtn = (<button onClick={this.deleteReminder.bind(this, this.props.reminder)} id="delete-btn" className="btn btn-secondary btn-md"><Link to={"/"} id="delete-item">Delete</Link></button>);
+				var deleteBtn = (<button onClick={this.deleteReminder.bind(this, this.props.reminder)} id="delete-btn" className="btn btn-secondary btn-md">Delete</button>);
 			}
 
 			return deleteBtn;
 	},
 
 	deleteReminder: function (reminder, event) {
-
 		event.preventDefault();
+		var prompt = window.confirm("Do you want to Delete this Reminder?")
+
+		if (!prompt) {
+			toastr.warning("Delete Canceled");
+			return
+		}
+
 		ReminderActionCreator.deleteReminder(reminder);
+		browserHistory.push('/');
 	},
 
 	render: function () {

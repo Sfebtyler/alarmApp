@@ -24,12 +24,6 @@ var ReminderActionCreator = {
 	},
 
 	deleteReminder: function (reminder) {
-		var prompt = window.confirm("Do you want to Delete this Reminder?")
-
-		if (!prompt) {
-			toastr.warning("Delete Canceled");
-			return
-		}
 
 		var deleteReminderPromise = API.deleteReminder(reminder);
 
