@@ -107,6 +107,10 @@ div>ul>li{
 	border-bottom:solid #196 1px;
 	background-color:#afb;
 	margin-bottom:5px;
+	height: -50px;
+}
+#list-border:hover{
+	background:#9ea;
 }
 #ul-list{
 	padding: 0px;
@@ -129,6 +133,13 @@ div>ul>li{
 	height:100px;
 	width:calc(60%);
 }
+#description-completed{
+	width:calc(40%);
+}
+#deleted-completed{
+	width:calc(20%);
+	line-height:60px;
+}
 #notCheck-completed {
 	float:left;
 	margin-bottom:10px;
@@ -137,7 +148,21 @@ div>ul>li{
 #markComplete{
 	padding-left:10px;
 }
-
+#delete-btn-completed{
+	font-family: "Times New Roman", Times, serif;
+	border:1px solid grey;
+	/*background-color:#cc0000;*/
+	width:75px;
+	height:34px;
+	color:#eee;
+	background: linear-gradient(to bottom, #c00,  #aa0000);
+	/*margin-bottom:2px;*/
+}
+#delete-btn-completed:hover{
+	/*background-color:#f55;*/
+	background: linear-gradient(to bottom, #aa0000,  #c00);
+	color:#eee;
+}
 button{
 	background:#4c9;
 	color: black;
@@ -175,7 +200,7 @@ button{
 #delete-btn:hover{
 	/*background-color:#f55;*/
 	background: linear-gradient(to bottom, #cc0000,  red);
-	color:black;
+	color:#eee;
 }
 #save-btn{
 	width:75px;

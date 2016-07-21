@@ -57,7 +57,13 @@ var ManageReminderPage = React.createClass({
 			ReminderActionCreator.createReminder(this.state.reminder);
 		}
 
-		browserHistory.push('/');
+
+		if (this.state.reminder.completed){
+			browserHistory.push('/reminders-completed');
+		}
+		else {
+			browserHistory.push('/');
+		}
 	},
 
 	reminderFormIsValid: function () {

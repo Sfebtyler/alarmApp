@@ -30,10 +30,25 @@ var RemindersForm = React.createClass({
 		}
 
 		ReminderActionCreator.deleteReminder(reminder);
+
+		if (reminder.completed) {
+			browserHistory.push('/reminders-completed');
+		}
+		else {
 		browserHistory.push('/');
+		}
 	},
 
 	render: function () {
+
+		function cancelLink (reminder) {
+			if (reminder.completed) {
+				return "/reminders-completed"
+			}
+			else {
+				return "/"
+			}
+		}
 
 		return (
 			<div>
@@ -66,7 +81,7 @@ var RemindersForm = React.createClass({
 						className="btn btn-success btn-md" 
 					/>
 	
-					<Link to='/'>
+					<Link to={cancelLink(this.props.reminder)}>
 						<button 
 							id="cancel-btn"
 							className="btn btn-secondary btn-md">Cancel

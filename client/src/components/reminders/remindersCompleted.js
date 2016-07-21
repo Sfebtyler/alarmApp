@@ -18,14 +18,15 @@ var RemindersCompleted = React.createClass({
   },
 
   getCompletedReminders: function(){
-  	var CompletedReminders = [];
+  	var completedReminders = [];
     for (var i = 0; i<this.state.reminders.length; i++){
     	var reminder = this.state.reminders[i];
     	if (reminder.completed === true){
-    		CompletedReminders.push(reminder)
+    		completedReminders.push(reminder)
     	}
     }
-    return CompletedReminders
+    var newCompletedReminders = _.sortBy(completedReminders, "dueDate");
+    return newCompletedReminders
   },
 
   componentWillMount: function(){
@@ -49,6 +50,17 @@ var RemindersCompleted = React.createClass({
 		reminder.completed ? reminder.completed = false : reminder.completed = true;
 		ReminderActionCreator.updateReminder(reminder);
 	},
+	deleteReminder: function (reminder, event) {
+		event.preventDefault();
+		var prompt = window.confirm("Do you want to Delete this Reminder?")
+
+		if (!prompt) {
+			toastr.warning("Delete Canceled");
+			return
+		}
+
+		ReminderActionCreator.deleteReminder(reminder);
+	},
 
 	render: function() {
 
@@ -67,7 +79,10 @@ var RemindersCompleted = React.createClass({
 							Date: <span id="date">{Moment(reminder.dueDate).format('MMMM Do YYYY, h:mm a')}</span>
 						</div>
 						<div className="col-sm-4, col-md-5, col-lg-5">
-							Description: <span id="description">{reminder.description}</span>
+							Description: <span id="description-completed">{reminder.description}</span>
+						</div>
+						<div className="col-sm-2, col-md-2, col-lg-2" id="deleted-completed">
+							<button onClick={this.deleteReminder.bind(this, reminder)} id="delete-btn-completed" className="btn btn-secondary btn-md">Delete</button>
 						</div>
 					</div>
 				</li>
