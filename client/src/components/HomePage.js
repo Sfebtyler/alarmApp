@@ -8,6 +8,7 @@ var AddButton = require('./reminders/button');
 var ReminderStore = require('../stores/reminderStore');
 var Link = require('react-router').Link;
 var Moment = require('moment');
+var _ = require('lodash');
 
 var Home = React.createClass({
   getInitialState: function(){
@@ -58,28 +59,31 @@ var Home = React.createClass({
           todayReminders.push(reminder)
         }
       }
-      return todayReminders
+      var newtodayReminders = _.sortBy(todayReminders, "dueDate");
+      return newtodayReminders
 
     },
     getOverdueReminders: function(){
-      var OverdueReminders = [];
+      var overdueReminders = [];
       for (var i = 0; i<this.state.reminders.length; i++){
         var reminder = this.state.reminders[i];
         if (Moment(reminder.dueDate).format('MMMM Do YYYY HH mm') < Moment(Date.now()).format('MMMM Do YYYY HH mm') && reminder.completed === false){
-          OverdueReminders.push(reminder)
+          overdueReminders.push(reminder)
         }
       }
-      return OverdueReminders
+      var newOverdueReminders = _.sortBy(overdueReminders, "dueDate");
+      return newOverdueReminders
     },
     getUpcomingReminders: function(){
-      var UpcomingReminders = [];
+      var upcomingReminders = [];
       for (var i = 0; i<this.state.reminders.length; i++){
         var reminder = this.state.reminders[i];
         if (Moment(reminder.dueDate).format('MMMM Do YYYY') > Moment(Date.now()).format('MMMM Do YYYY') && reminder.completed === false){
-          UpcomingReminders.push(reminder)
+          upcomingReminders.push(reminder)
         }
       }
-      return UpcomingReminders
+      var newUpcomingReminders = _.sortBy(upcomingReminders, "dueDate");
+      return newUpcomingReminders
     },
 	render: function () {
 		return (
