@@ -25,7 +25,7 @@ var OverdueList = React.createClass({
 
 			return (
 				<Link to={"/reminders-page/" + reminder._id} id="list-item" key={reminder._id}>
-				<li id="list-border">
+				<li id="list-border"  className="mytooltip">
 					<div className="row">
 						<div id="check" className="col-sm-2, col-md-1, col-lg-1">
 							<input type="checkbox" onClick={this.updateReminder.bind(this, reminder)} />
@@ -35,6 +35,7 @@ var OverdueList = React.createClass({
 							<br />
 							<span id="date">{Moment(reminder.dueDate).format('MMMM Do YYYY, h:mm a')}</span>
 						</div>
+						<span className="mytooltiptext"><span id="description">{reminder.description}</span></span>
 					</div>
 				</li>
 				</Link>

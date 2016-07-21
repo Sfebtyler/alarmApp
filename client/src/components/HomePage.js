@@ -13,9 +13,9 @@ var Home = React.createClass({
   getInitialState: function(){
     return{
       reminders: ReminderStore.getAllReminders(),
-      todayReminders: ReminderStore.getAllTodayReminders(),
-      overdueReminders: ReminderStore.getAllOverdueReminders(),
-      upcomingReminders: ReminderStore.getAllUpcomingReminders()
+      todayReminders: [],
+      overdueReminders: [],
+      upcomingReminders: []
     }
   },
   componentDidMount: function () {
@@ -23,9 +23,9 @@ var Home = React.createClass({
     this.timerInterval = setInterval(this.functionToBeCalled, 1000);
   },
   functionToBeCalled: function(){
-    var newTodayReminders = ReminderStore.getAllTodayReminders();
-    var newOverdueReminders = ReminderStore.getAllOverdueReminders();
-    var newUpcomingReminders = ReminderStore.getAllUpcomingReminders();
+    var newTodayReminders = this.getTodayReminders();
+    var newOverdueReminders = this.getOverdueReminders();
+    var newUpcomingReminders = this.getUpcomingReminders();
     this.setState({
       todayReminders: newTodayReminders,      
       overdueReminders: newOverdueReminders,
@@ -45,12 +45,42 @@ var Home = React.createClass({
   onChange: function(){
     this.setState({
       reminders: ReminderStore.getAllReminders(),
-      todayReminders: ReminderStore.getAllTodayReminders(),
-      overdueReminders: ReminderStore.getAllOverdueReminders(),
-      upcomingReminders: ReminderStore.getAllUpcomingReminders()
+      todayReminders: this.getTodayReminders(),
+      overdueReminders: this.getOverdueReminders(),
+      upcomingReminders: this.getUpcomingReminders()
   	});
   },
+  getTodayReminders: function(){
+      var todayReminders = [];
+      for (var i = 0; i<this.state.reminders.length; i++){
+        var reminder = this.state.reminders[i];
+        if (Moment(reminder.dueDate).format('MMMM Do YYYY HH mm') >= Moment(Date.now()).format('MMMM Do YYYY HH mm') && Moment(reminder.dueDate).format('MMMM Do YYYY') === Moment(Date.now()).format('MMMM Do YYYY') && reminder.completed === false){
+          todayReminders.push(reminder)
+        }
+      }
+      return todayReminders
 
+    },
+    getOverdueReminders: function(){
+      var OverdueReminders = [];
+      for (var i = 0; i<this.state.reminders.length; i++){
+        var reminder = this.state.reminders[i];
+        if (Moment(reminder.dueDate).format('MMMM Do YYYY HH mm') < Moment(Date.now()).format('MMMM Do YYYY HH mm') && reminder.completed === false){
+          OverdueReminders.push(reminder)
+        }
+      }
+      return OverdueReminders
+    },
+    getUpcomingReminders: function(){
+      var UpcomingReminders = [];
+      for (var i = 0; i<this.state.reminders.length; i++){
+        var reminder = this.state.reminders[i];
+        if (Moment(reminder.dueDate).format('MMMM Do YYYY') > Moment(Date.now()).format('MMMM Do YYYY') && reminder.completed === false){
+          UpcomingReminders.push(reminder)
+        }
+      }
+      return UpcomingReminders
+    },
 	render: function () {
 		return (
 			<div>
